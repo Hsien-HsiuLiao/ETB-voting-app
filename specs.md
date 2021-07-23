@@ -3,7 +3,7 @@
 We will build a voting app to vote on the ETB projects to build in the future. The voting is based on the ETB tokens:
 * This is the address of the [ETB token](https://bscscan.com/token/0x7ac64008fa000bfdc4494e0bfcc9f4eff3d51d2a)
 * Voting is done off-chain, in order to not cost anything and maximize participation 
-* The app hasL 
+* The app has:
  * a frontend for users
  * a backend to manage voting in a db 
 * To vote, a user needs to sign a message, from the frontend: 
@@ -12,11 +12,17 @@ We will build a voting app to vote on the ETB projects to build in the future. T
 * The backend checks that:
   * the signature is correct
   * the user (identified by the address) has not already voted
-  * how many ETB tokens are owned by this address, the vote is done proportionally
+  * how many ETB tokens are owned by this address, the vote is done proportionally - ETBToken.balance[accounts[0]]?
 * Data structure for a vote: 
   * Description
   * deadline
   * [Choices]
+  vote = {
+    Description: "",
+    deadline: , 
+    [Choices]: [choice1, choice2, ?]
+  }
+
 * Screens (frontend):
   * Screen 1: Users can vote for the next project, as well as see current vote
 result
