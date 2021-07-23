@@ -39,6 +39,7 @@ export default function Home() {
     init();
   }, []);
 
+  //when clicking submit button to vote for next video, sign the msg ${poll_id}-{choice_id}, signed with metamask
   const createVote = async e => {
     e.preventDefault();
     //console.log(e.target.elements);
@@ -48,8 +49,26 @@ export default function Home() {
       pollId: poll._id,
       proposalId: selectedProposalId
     });
-    console.log(response);
+    console.log("create-vote response:", response);
+    updatePollResults();
+    //sign message
+    /*
+    signMessage()
+    */
+    
   };
+
+  //useEffect(() => {
+  //  updatePollResults();
+
+ // }, []);
+
+
+  async function updatePollResults() {
+    const response = await axios.get('/api/get-latest-poll');
+    setPoll(response.data.poll);
+
+  }
 
   return (
     <div className='container'>
