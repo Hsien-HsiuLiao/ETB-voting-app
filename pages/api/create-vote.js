@@ -27,10 +27,13 @@ export default async (req, res) => {
     return;
   }
   //console.log(req.body);
+
+
   try {
     //findOneAndUpdate({_id: req.body.pollId}, {$inc : {'post.likes' : 1}}).exec(...);
     const poll = await Poll
-      .findById(req.body.pollId)
+      .findById(req.body.pollId);
+    //check if account already voted
     poll.proposals = poll.proposals.map(proposal => {   
       if(proposal._id.toString() === req.body.proposalId.toString()) {
         return {
