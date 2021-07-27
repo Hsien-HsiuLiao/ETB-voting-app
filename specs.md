@@ -8,11 +8,11 @@ We will build a voting app to vote on the ETB projects to build in the future. T
  * a backend to manage voting in a db 
 * To vote, a user needs to sign a message, from the frontend: 
  * The message to sign is: ${poll_id}-{choice_id}
- * The message is signed with Metamask
+ * The message is signed with Metamask - https://docs.metamask.io/guide/signing-data.html#signing-data-with-metamask
 * The backend (api/create-vote.js?) checks that:
   * the signature is correct
   * the user (identified by the address) has not already voted - check in api/create-vote.js
-  * how many ETB tokens are owned by this address, the vote is done proportionally - ETBToken.balance[accounts[0]]?
+  * how many ETB tokens are owned by this address, the vote is done proportionally - ETBToken.balanceOf[accounts[0]]?
 * Data structure for a vote: 
   * Description
   * deadline
