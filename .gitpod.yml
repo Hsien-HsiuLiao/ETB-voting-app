@@ -9,8 +9,9 @@ tasks:
     init: npm install -g truffle
     command: | 
       truffle develop
-      migrate
       gp sync-done truffledevelop
   - name: Terminal 3
     init: gp sync-await truffledevelop
-    command: npm run dev
+    command: |
+      truffle migrate
+      npm run dev
