@@ -6,9 +6,11 @@ tasks:
   - init: yarn install && yarn run build
     command: yarn run start
   - name: Terminal 2
-    init: npm install -g truffle
+    init: | 
+      npm install -g truffle
+      npm install ganache --global
     command: | 
-      truffle develop
+      ganache
       gp sync-done truffledevelop
   - name: Terminal 3
     init: gp sync-await truffledevelop
