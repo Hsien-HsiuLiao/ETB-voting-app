@@ -7,6 +7,10 @@ tasks:
     command: yarn run start
   - name: Terminal 2
     init: npm install -g truffle
-    command: truffle develop
+    command: | 
+      truffle develop
+      migrate
+      gp sync-done truffledevelop
   - name: Terminal 3
-    init: npm run dev
+    init: gp sync-await truffledevelop
+    command: npm run dev
