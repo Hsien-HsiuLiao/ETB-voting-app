@@ -8,4 +8,5 @@ tasks:
   - name: Terminal 2
     init: npm install -g truffle
     command: truffle develop
-
+  - name: Terminal 3
+    init: npm run dev
